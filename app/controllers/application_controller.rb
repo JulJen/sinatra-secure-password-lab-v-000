@@ -54,6 +54,14 @@ class ApplicationController < Sinatra::Base
      end
    end
 
+   get "/deposit" do
+     erb :deposit
+   end
+
+   get "/withdrawal" do
+     erb :withdrawal
+   end
+
   get "/failure" do
     erb :failure
   end
