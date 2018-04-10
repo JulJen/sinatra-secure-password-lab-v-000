@@ -32,7 +32,6 @@ class ApplicationController < Sinatra::Base
 
   # get '/account' do
   #   if current_user && logged_in?
-  #     @user =
   #   # user = User.find(session[:user_id])
   #     erb :account
   #   end
