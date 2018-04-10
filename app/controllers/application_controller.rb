@@ -32,10 +32,20 @@ class ApplicationController < Sinatra::Base
 
   get '/account' do
     if current_user && logged_in?
+      @user =
     # user = User.find(session[:user_id])
       erb :account
     end
   end
+
+  # get '/account' do
+  #   if Helpers.is_logged_in?(session)
+  #     @user = Helpers.current_user(session)
+  #     erb :account
+  #   else
+  #     erb :error
+  #   end
+  # end
 
 
   get "/login" do
