@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410233343) do
+ActiveRecord::Schema.define(version: 20180411010046) do
 
   create_table "users", force: :cascade do |t|
     t.string  "username"
     t.string  "password_digest"
-    t.decimal "balance",         precision: 8, scale: 2
+    t.decimal "balance",         precision: 8, scale: 2, default: 0.0
   end
 
 end
