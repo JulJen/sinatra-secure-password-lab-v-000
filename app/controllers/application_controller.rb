@@ -72,16 +72,16 @@ class ApplicationController < Sinatra::Base
     erb :deposit
   end
 
-  # post '/deposit' do
-  #   if logged_in?
-  #     # && current_user.balance > params[:amount].to_f
-  #     current_user.update(balance: current_user.balance + params[:amount].to_f)
-  #
-  #     redirect "/account"
-  #   else
-  #     redirect "/failure"
-  #   end
-  # end
+  post '/deposit' do
+    if logged_in?
+      # && current_user.balance > params[:amount].to_f
+      current_user.update(balance: current_user.balance + params[:amount].to_f)
+
+      redirect "/account"
+    else
+      redirect "/failure"
+    end
+  end
 
   get "/withdrawal" do
     erb :withdrawal
