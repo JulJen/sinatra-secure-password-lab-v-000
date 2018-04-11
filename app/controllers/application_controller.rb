@@ -29,13 +29,7 @@ class ApplicationController < Sinatra::Base
       redirect "/failure"
     end
   end
-
-  # get '/account' do
-  #   if current_user && logged_in?
-  #   # user = User.find(session[:user_id])
-  #     erb :account
-  #   end
-  # end
+  
 
   get '/account' do
 
