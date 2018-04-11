@@ -37,16 +37,24 @@ class ApplicationController < Sinatra::Base
   #   end
   # end
 
-  get '/account' do
-binding.pry
-    if logged_in?
-      @user = current_user
+#   get '/account' do
+# binding.pry
+#     if logged_in?
+#       @user = current_user
+#
+#       erb :account
+#     else
+#       redirect "/failure"
+#     end
+#   end
 
+  get '/account' do
+    if current_user && logged_in?
+    # user = User.find(session[:user_id])
       erb :account
-    else
-      redirect "/failure"
     end
   end
+
 
 
   get "/login" do
