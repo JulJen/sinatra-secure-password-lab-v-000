@@ -91,9 +91,9 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
-    def validate
-      errors.add(:balance, "should be at least 0.00") if price.nil? || price < 0.00
-    end
+    # def validate
+    #   errors.add(:balance, "should be at least 0.00") if price.nil? || price < 0.00
+    # end
   end
 
 end
