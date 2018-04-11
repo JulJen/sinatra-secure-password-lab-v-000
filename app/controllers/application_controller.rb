@@ -38,14 +38,12 @@ class ApplicationController < Sinatra::Base
   # end
 
   get '/account' do
-    if logged_in? && current_user.balance > params[:amount].to_f
+
+    if logged_in?
       @user = current_user
 
-      current_user.update(balance: current_user.balance - params[:amount].to_f)
+      
 
-    # redirect "/account"
-    # if logged_in?
-      # @user = current_user
       erb :account
     else
       redirect "/failure"
