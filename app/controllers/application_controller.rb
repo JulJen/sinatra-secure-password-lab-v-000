@@ -41,7 +41,7 @@ class ApplicationController < Sinatra::Base
 
     if logged_in?
       @user = current_user
-
+binding.pry
       erb :account
     else
       redirect "/failure"
