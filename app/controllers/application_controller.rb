@@ -76,6 +76,16 @@ class ApplicationController < Sinatra::Base
     erb :withdrawal
   end
 
+  post '/withdrawal' do
+    if logged_in? && current_user.balance > params[:amount].to_f
+      current_user.update(balance: current_user.balance - params[:amount].to_f)
+
+      redirect "/account"
+    else
+      redirect "/failure"
+    end
+  end
+
   helpers do
     def logged_in?
       !!session[:user_id]
