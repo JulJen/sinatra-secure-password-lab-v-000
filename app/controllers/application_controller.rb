@@ -58,19 +58,11 @@ class ApplicationController < Sinatra::Base
     user = User.find_by(:username => params[:username])
 
      if user && user.authenticate(params[:password])
-         session[:user_id] = user.id
-         redirect "/account"
+       session[:user_id] = user.id
+       redirect "/account"
      else
-         redirect "/failure"
+       redirect "/failure"
      end
-   end
-
-   get "/deposit" do
-     erb :deposit
-   end
-
-   get "/withdrawal" do
-     erb :withdrawal
    end
 
   get "/failure" do
@@ -80,6 +72,14 @@ class ApplicationController < Sinatra::Base
   get "/logout" do
     session.clear
     redirect "/"
+  end
+
+  get "/deposit" do
+    erb :deposit
+  end
+
+  get "/withdrawal" do
+    erb :withdrawal
   end
 
   helpers do
