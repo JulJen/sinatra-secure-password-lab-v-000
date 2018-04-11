@@ -90,7 +90,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def validate
-      errors.add(:balance, "should be at least 0.01") if price.nil? || price < 0.01
+      errors.add(:balance, "should be at least 0.0-") if price.nil? || price < 0.00
     end
   end
 
