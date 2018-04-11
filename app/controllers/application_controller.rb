@@ -68,8 +68,18 @@ class ApplicationController < Sinatra::Base
     redirect "/"
   end
 
-  get "/deposit" do
+  get '/deposit' do
     erb :deposit
+  end
+
+  post '/deposit' do
+    if logged_in? && current_user.balance > params[:amount].to_f
+      current_user.update(balance: current_user.balance - params[:amount].to_f)
+
+      redirect "/account"
+    else
+      redirect "/failure"
+    end
   end
 
   get "/withdrawal" do
