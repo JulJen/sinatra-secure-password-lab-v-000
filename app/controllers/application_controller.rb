@@ -38,10 +38,10 @@ class ApplicationController < Sinatra::Base
   # end
 
   get '/account' do
-
+binding.pry
     if logged_in?
       @user = current_user
-binding.pry
+
       erb :account
     else
       redirect "/failure"
